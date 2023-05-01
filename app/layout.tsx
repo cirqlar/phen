@@ -16,15 +16,33 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={roboto.className}>
-				<nav className="navbar py-4">
-					<div className="container">
-						<a href="https://www.mousephenotype.org/" rel="nofollow" className="navbar-brand">
-							{/* eslint-disable-next-line @next/next/no-img-element */}
-							<img src="/IMPC_logo.svg" className='my-2' alt="IMPC logo" height="50" />
-						</a>
-					</div>
-				</nav>
+				<header>
+					<nav className="navbar py-4">
+						<div className="container">
+							<a href="https://www.mousephenotype.org/" rel="nofollow" className="navbar-brand">
+								{/* eslint-disable-next-line @next/next/no-img-element */}
+								<img src="/IMPC_logo.svg" className='my-2' alt="IMPC logo" height="50" />
+							</a>
+
+							<a href="#explore_data" className="btn btn-secondary text-white">Explore the Data</a>
+						</div>
+					</nav>
+				</header>
 				{children}
+
+				<footer className="bg-light">
+					<nav className="navbar navbar-expand py-4">
+						<div className="container">
+							<p className="navbar-brand mb-0">Ayanfe Ibitoye</p>
+							
+							<ul className="navbar-nav">
+								<li className="nav-item"><a className="nav-link" href="https://github.com/cirqlar/phen">Source</a></li>
+								<li className="nav-item"><a className="nav-link" href="https://github.com/cirqlar">Profile</a></li>
+								<li className="nav-item"><a className="nav-link" href="https://github.com/mpi2/EBI02126-web-developer/blob/main/gene_phenotypes.json">Data</a></li>
+							</ul>
+						</div>
+					</nav>
+				</footer>
 			</body>
 		</html>
 	)
