@@ -94,8 +94,10 @@ export default function Heatmap({ data }: { data: TransformedData }) {
 	}, []);
 
 	return (
-		<div className="mb-5">
+		<div className="mb-5 mt-4">
 			<div className="container">
+				<h2 id="explore_data">Explore the data</h2>
+
 				<label id="gene_filter_label">Filter by gene list {activeFilter === "gene" && <ActiveTag />}</label>
 				<Select
 					aria-labelledby="gene_filter_label"
@@ -136,28 +138,33 @@ export default function Heatmap({ data }: { data: TransformedData }) {
 					}}
 					isMulti
 				/>
+				<div className="row">
+					<div className="col-md-6 mb-3">
+						<label id="percentile_filter_label">
+							Filter top 10% of genes that have the highest phenotype count {activeFilter === "percentile" && <ActiveTag />}
+						</label>
+						<FormRange
+							min={0}
+							max={90}
+							step={10}
+							defaultValue={0}
+							aria-labelledby="percentile_filter-label"
+							onChange={(event) => {
+								const percentile = Number(event.target.value);
+								if (percentile > 0) {
+									filter_by_percentile(data.genes, data.ranked_genes, percentile);
+								} else {
+									clear(data.genes);
+								}
+							}}
+						/>
+					</div>
 
-				<label id="percentile_filter_label">
-					Filter top 10% of genes that have the highest phenotype count {activeFilter === "percentile" && <ActiveTag />}
-				</label>
-				<FormRange
-					min={0}
-					max={90}
-					step={10}
-					defaultValue={0}
-					aria-labelledby="percentile_filter-label"
-					onChange={(event) => {
-						const percentile = Number(event.target.value);
-						if (percentile > 0) {
-							filter_by_percentile(data.genes, data.ranked_genes, percentile);
-						} else {
-							clear(data.genes);
-						}
-					}}
-				/>
+					<p className="col-md-6 text-md-end"><small>Note: Only one filter is active at a time</small></p>
+				</div>
 			</div>
 
-			<div className="mw-100 overflow-auto">
+			<div className="mw-100 overflow-auto mx-3">
 				{paginatedData.length > 0
 					? (
 						<div style={{ height: `${(paginatedData.length * 20) + 170}px` }} className={`mb-4 position-relative ${styles.heatmap_container}`}>
