@@ -1,95 +1,62 @@
-import Image from 'next/image'
+import Image from 'next/image';
 import styles from './page.module.css'
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+import embryo_photo1 from "./_images/embryo_image_1.jpeg";
+import embryo_photo2 from "./_images/embryo_image_2.jpg";
+import embryo_photo3 from "./_images/embryo_image_3.jpeg";
+import HeatmapServer from './_components/heatmap-server';
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+export default async function Home() {
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+	return (
+		<main className="">
+			<section className="container">
+				<h2>Introduction to IMPC Embryo Data</h2>
+				<p>
+					Up to one third of homozygous knockout lines are lethal, which means no homozygous mice or less than expected are observed past the weaning stage (IMPC <a href="https://www.mousephenotype.org/impress/ProcedureInfo?action=list&amp;procID=703&amp;pipeID=7" rel="nofollow">Viability Primary Screen procedure</a>). Early death may occur during embryonic development or soon after birth, during the pre-weaning stage. For this reason, the IMPC established a <a href="//www.mousephenotype.org/impress" rel="nofollow">systematic embryonic phenotyping pipeline</a> to morphologically evaluate mutant embryos to ascertain the primary perturbations that cause early death and thus gain insight into gene function.
+				</p>
+				<p>
+					As determined in IMPReSS (see interactive diagram <a href="https://www.mousephenotype.org/impress" rel="nofollow">here</a>), all embryonic lethal lines undergo gross morphology assessment at E12.5 (embryonic day 12.5) to determine whether defects occur earlier or later during embryonic development. A comprehensive imaging platform is then used to assess dysmorphology. Embryo gross morphology, as well as 2D and 3D imaging are actively being implemented by the IMPC for lethal lines.
+				</p>
+				<p>
+					Read more in our paper on <a href="https://europepmc.org/article/PMC/5295821" rel="nofollow">High-throughput discovery of novel developmental phenotypes, Nature 2016.</a>
+				</p>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+				<div className="row my-5">
+					<Image className={`${styles.image} col-4`} src={embryo_photo1} height="120" alt="picture of an embryo"/>
+					<Image className={`${styles.image} col-4`} src={embryo_photo2} height="120" alt="picture of an embryo"/>
+					<Image className={`${styles.image} col-4`} src={embryo_photo3} height="120" alt="picture of an embryo"/>
+				</div>
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
+				<h3>Accessing Embryo Phenotype Data</h3>
+				<p>Embryo phenotype data can be accessed in multiple ways:</p>
+				<ul>
+					<li>
+						<a href="https://github.com/mpi2/EBI02126-web-developer/blob/main/data/embryo_imaging" rel="nofollow">Embryo Images: interactive heatmap</a> A compilation of all our Embryo Images, organised by gene and life stage, with access to the Interactive Embryo Viewer, where you can compare mutants and wild types side by side and rotate 2D and 3D images; we also provide access to our external partners&apos; embryo images.
+					</li>
+					<li>
+						<a href="https://github.com/mpi2/EBI02126-web-developer/blob/main/data/embryo/vignettes" rel="nofollow">Embryo Vignettes</a> Showcase of best embryo images with detailed explanations.
+					</li>
+					<li>
+						From the FTP site, latest release All our results. Reports need to be filtered by a dedicated column, Life Stage (E9.5, E12.5, E15.5 and E18.5). Please check the README file or see documentation <a href="https://www.mousephenotype.org/help/non-programmatic-data-access/" rel="nofollow">here</a>.
+					</li>
+					<li>
+						Using the REST API (see documentation <a href="https://www.mousephenotype.org/help/programmatic-data-access/" rel="nofollow">here</a>)
+					</li>
+				</ul>
 
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+				<h3>Determining Lethal Lines</h3>
+				<p>
+					The IMPC assesses each gene knockout line for viability (Viability Primary Screen <a href="//www.mousephenotype.org/impress/ProcedureInfo?action=list&amp;procID=703&amp;pipeID=7" rel="nofollow">IMPC_VIA_001</a>). In this procedure, the proportion of homozygous pups is determined soon after birth, during the preweaning stage, in litters produced from mating heterozygous animals. A line is declared lethal if no homozygous pups for the null allele are detected at weaning age, and subviable if pups homozygous for the null allele constitute less than 12.5% of the litter.
+				</p>
+				<p>
+					Lethal strains are further phenotyped in the <a href="//www.mousephenotype.org/impress" rel="nofollow">embryonic phenotyping pipeline</a>. For embryonic lethal and subviable strains, heterozygotes are phenotyped in the IMPC <a href="//www.mousephenotype.org/impress" rel="nofollow">adult phenotyping pipeline</a>.
+				</p>
+			</section>
+			<section>
+				{/* @ts-expect-error Server Component */}
+				<HeatmapServer />
+			</section>
+		</main>
+	)
 }

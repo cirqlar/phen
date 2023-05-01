@@ -1,0 +1,8 @@
+.heatmap_container {
+	min-width: 700px;
+}
+
+.current_cell {
+	min-width: 250px;
+	max-height: 50vh;
+}
