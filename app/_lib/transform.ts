@@ -42,7 +42,7 @@ export type TransformedData = {
 	ranked_genes: number[],
 };
 
-export default function tranformGenomeData(data: PhenotypingData[]): TransformedData {
+export default function tranform_phenotyping_data(data: PhenotypingData[]): TransformedData {
 	let genes: HeatmapGene[] = [];
 	let tlp_terms: TopLevelPhenotype[] = [];
 
@@ -63,9 +63,6 @@ export default function tranformGenomeData(data: PhenotypingData[]): Transformed
 		if (tlpIndex === -1) {
 			tlpIndex = tlp_terms.length;
 			tlp_terms.push(phen.top_level_phenotype_term);
-			if (phen.phenotype_count === 0) {
-				console.log(phen, index++);
-			}
 		}
 
 		genes[gene_index].data[tlpIndex] =  ({

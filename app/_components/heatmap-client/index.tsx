@@ -7,7 +7,7 @@ import CloseButton from "react-bootstrap/CloseButton";
 import FormRange from "react-bootstrap/FormRange";
 import BPagination from "react-bootstrap/Pagination";
 
-import { HeatmapGene, HeatmapGeneData, TransformedData } from "../../_lib/data";
+import { HeatmapGene, HeatmapGeneData, TransformedData } from "../../_lib/transform";
 import styles from "./heatmap.module.css";
 
 const ENTRIES_PER_PAGE = 100;
