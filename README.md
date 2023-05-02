@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a technical task featuring a landing page with a heatmap that can be used to compare the knockout effects of the top 10% list of genes from the IMPC Gene-Phenotype Associations dataset.
 
-## Getting Started
+## How to run
 
-First, run the development server:
+To run locally: Clone the project, install dependencies and run the dev server
 
 ```bash
+git clone https://github.com/cirqlar/phen.git
+
+# In the project directory
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Alternatively, a hosted version of this project can be found at [this website](https://phen.vercel.app/).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technology Decisions
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+- [Next.js](https://nextjs.org/) 13: chosen for it's incremental static regeneration (including the new app model using react server components and automatic caching) ao that data could be transformed on the server and that work only has to be done at build time.
+- [Bootstrap](https://react-bootstrap.github.io/): As advised
+- [Typescript](https://www.typescriptlang.org/): For the benefits of static type checking
+- [Nivo](https://nivo.rocks/): It's easy to use and quick to get set up with and provides a lot of useful features.
+- [React Select](https://react-select.com/home): Provides really nice UI & UX for the multiple select component (over the react bootstrap component)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Design Decisions
 
-## Learn More
+- Transforming Data on the Server: This is work that would be repetitive so doing it on the server is best. Even better that since the results can be cached at build time and reused for all requests. It would also be relatively easy to deal with changing data if that became a requirement.
+- Pagination: Nivo is quite performant but displaying a thousand rows at once is a bit much for performance (not to mention the bad user experience). Pagination was used along with filtering to keep this in check.
 
-To learn more about Next.js, take a look at the following resources:
+This task was implemented in a week (about 1 to 3 hours most days).
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
