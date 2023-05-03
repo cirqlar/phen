@@ -10,6 +10,20 @@ export default async function Home() {
 
 	return (
 		<main className="">
+			<section className="container col-xxl-8 px-4 py-5">
+				<div className="row flex-lg-row-reverse align-items-center g-5 py-5">
+					<div className="col-lg-6">
+						<Image className={`${styles.image} col-4`} src={embryo_photo1} height="120" alt="picture of an embryo"/>
+						<Image className={`${styles.image} col-4`} src={embryo_photo2} height="120" alt="picture of an embryo"/>
+						<Image className={`${styles.image} col-4`} src={embryo_photo3} height="120" alt="picture of an embryo"/>
+					</div>
+					<div className="col-lg-6">
+						<h1>IMPC Embryo Data</h1>
+						<p className="lead">Compare the knockout effects of the top 10% of genes from the IMPC Gene-Phenotype Associations dataset in different phenotyping systems.</p>
+						<a href="#explore_data" className="btn btn-secondary btn-lg text-white">Explore the Data</a>
+					</div>
+				</div>
+			</section>
 			<section className="container">
 				<h2>Introduction to IMPC Embryo Data</h2>
 				<p>
@@ -21,12 +35,6 @@ export default async function Home() {
 				<p>
 					Read more in our paper on <a href="https://europepmc.org/article/PMC/5295821" rel="nofollow">High-throughput discovery of novel developmental phenotypes, Nature 2016.</a>
 				</p>
-
-				<div className="row my-5">
-					<Image className={`${styles.image} col-4`} src={embryo_photo1} height="120" alt="picture of an embryo"/>
-					<Image className={`${styles.image} col-4`} src={embryo_photo2} height="120" alt="picture of an embryo"/>
-					<Image className={`${styles.image} col-4`} src={embryo_photo3} height="120" alt="picture of an embryo"/>
-				</div>
 
 				<h3>Accessing Embryo Phenotype Data</h3>
 				<p>Embryo phenotype data can be accessed in multiple ways:</p>

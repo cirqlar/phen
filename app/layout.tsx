@@ -18,14 +18,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={roboto.className}>
-				<header>
+				<header className="bg-light">
 					<nav className="navbar py-4">
 						<div className="container">
 							<a href="https://www.mousephenotype.org/" rel="nofollow" className="navbar-brand">
 								<Image src="/IMPC_logo.svg" className='my-2' alt="IMPC logo" width="170" height="50" priority />
 							</a>
 
-							<a href="#explore_data" className="btn btn-secondary text-white">Explore the Data</a>
 						</div>
 					</nav>
 				</header>
