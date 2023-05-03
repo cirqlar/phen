@@ -5,14 +5,15 @@ This is a technical task featuring a landing page with a heatmap that can be use
 To run locally: Clone the project, install dependencies and run the dev server
 
 ```bash
+# Clone the repository
 git clone https://github.com/cirqlar/phen.git
 
-# In the project directory
+# In the project directory install dependencies and start the dev server (at localhost:3000)
 npm install
 npm run dev
 ```
 
-Alternatively, a hosted version of this project can be found at [this website](https://phen.vercel.app/).
+Alternatively, a hosted version of this project can be found at [this URL](https://phen.vercel.app/).
 
 ## Technology Decisions
 
