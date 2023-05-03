@@ -219,20 +219,24 @@ export default function Heatmap({ data }: { data: TransformedData }) {
 							/>
 						</div>
 					) : (
-						<div>No entries</div>
+						<div className="container bg-info bg-opacity-50 rounded-2 border border-2 border-info fs-5 px-4 py-4">
+							No entries
+						</div>
 					)
 				}
 			</div>
 
 			<div className="container">
-				<Pagination
-					{...paginationInfo}
-					paginate={(page) => paginate(
-						activeFilter === "none" ? data.genes : filteredData,
-						page,
-						ENTRIES_PER_PAGE
-					)}
-				/>
+				{paginatedData.length > 0 && (
+					<Pagination
+						{...paginationInfo}
+						paginate={(page) => paginate(
+							activeFilter === "none" ? data.genes : filteredData,
+							page,
+							ENTRIES_PER_PAGE
+						)}
+					/>
+				)}
 			</div>
 
 			<div className="position-fixed top-0 start-50 translate-middle-x mt-3">

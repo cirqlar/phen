@@ -13,5 +13,9 @@ export default async function HeatmapServer() {
 
 	return heatmapData ? (
 		<Heatmap data={heatmapData} />
-	) : (<div></div>);
+	) : (
+		<div className="container bg-danger bg-opacity-50 rounded-2 border border-2 border-danger fs-5 px-4 py-4 mt-4 mb-4">
+			Error displaying data. Please try again later or contact the developer.
+		</div>
+	);
 }
